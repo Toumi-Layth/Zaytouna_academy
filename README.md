@@ -40,7 +40,7 @@ NOTE: The frontend was initially generated using AI tools and customized to fit 
 ## 🗃️ Database Structure Overview
 
 - `users`: Stores user info (username, email, hashed password, role)
-- `cours`: Stores course data (title, description, price, category, etc.)
+- `courses`: Stores course data (title, description, price, category, etc.)
 - `enrollments`: Links users to courses
 - `activity_log`: Tracks admin-related actions
 
