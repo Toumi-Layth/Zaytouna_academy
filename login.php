@@ -1,11 +1,13 @@
 <?php
     session_start();
-    include('config.php');
+    include('includes/config.php');
     if(isset($_POST['connexion'])){
         extract($_POST);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error_message = "Adresse email invalide.";
-        }else {
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // $error_message = "Adresse email invalide.";
+        // }else {
+            $email = trim($email); // Removes leading/trailing whitespace
             $userQuery = $cnx->prepare("SELECT * FROM users WHERE email = ?");  
             $userQuery->execute([$email]);
             if($userQuery->rowCount()== 0){
@@ -18,15 +20,15 @@
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['id'] = $user['id'];
                     if ($user['role'] == 'admin') {
-                        header('Location: admin-dashboard.php');
+                        header('Location: admin/admin_dash.php');
                         exit;
                     } else {
-                        header('Location: user-dashboard.php');
+                        header('Location: user/user_dash.php');
                         exit;
                     }
                 }
             }
-        }
+        // }
     }
 ?>
 
@@ -42,14 +44,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-light">
+    <a href="index.php" class="top-left-link"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
     <div class="auth-container">
-        <div class="auth-back-link">
-            <a href="index.html"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
-        </div>
-
         <div class="auth-card">
             <div class="auth-header">
                 <h2>Se connecter</h2>
+                <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+                    <div class="alert alert-success">Inscription réussie ! Vous pouvez maintenant vous connecter.</div>
+                <?php endif; ?>
+
                 <?php if (!empty($error_message)): ?>
                     <div class="alert alert-danger"><?= $error_message ?></div>
                 <?php endif; ?>
@@ -80,7 +83,7 @@
                 
                 <div class="test-account">
                     <p>Pour tester le compte admin:</p>
-                    <p>Email: admin@gmail.tn</p>
+                    <p>Email: admin@gmail.com</p>
                     <p>Mot de passe: azerty</p>
                 </div>
             </div>
