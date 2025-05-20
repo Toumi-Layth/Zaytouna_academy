@@ -3,52 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduTunis - Plateforme Éducative Tunisienne</title>
+    <title>Zaytouna Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>EduTunis</h1>
-                </div>
-                <nav class="nav">
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="#" class="nav-link active">Accueil</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link">À propos de nous</a></li>
-                        <li class="nav-item"><a href="#courses" class="nav-link">Nos cours</a></li>
-                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="auth-buttons">
-                    <a href="login.html" class="btn btn-outline">Se connecter</a>
-                    <a href="signup.html" class="btn btn-primary">S'inscrire</a>
-                </div>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php include ('includes/nav_bar.php') ?>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Apprenez à votre rythme avec <span class="text-primary">EduTunis</span></h1>
+                    <h1>Apprenez à votre rythme avec <span class="text-primary">Zaytouna Academy</span></h1>
                     <p>Découvrez des cours de qualité créés par des experts tunisiens pour développer vos compétences et avancer dans votre carrière.</p>
                     <div class="hero-buttons">
-                        <a href="signup.html" class="btn btn-primary">S'inscrire gratuitement <i class="fas fa-chevron-right"></i></a>
-                        <a href="login.html" class="btn btn-outline">Se connecter</a>
+                        <a href="signup.php" class="btn btn-primary">S'inscrire gratuitement <i class="fas fa-chevron-right"></i></a>
+                        <a href="login.php" class="btn btn-outline">Se connecter</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://placehold.co/600x400" alt="Étudiants qui apprennent">
+                    <img src="assets/images/edu.avif" alt="Étudiants qui apprennent" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Image+non+trouvée';">
                 </div>
             </div>
         </div>
@@ -59,7 +36,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>À propos de nous</h2>
-                <p>EduTunis est une plateforme éducative tunisienne dédiée à offrir des cours de qualité accessibles à tous.</p>
+                <p>Zaytouna Academy est une plateforme éducative tunisienne dédiée à offrir des cours de qualité accessibles à tous.</p>
             </div>
 
             <div class="features">
@@ -97,9 +74,9 @@
                 <h2>Nos cours populaires</h2>
                 <p>Explorez notre sélection de cours dans différents domaines pour développer vos compétences.</p>
             </div>
-
-            <div class="course-cards">
-                <div class="course-card">
+            <div class="d-flex flex-row gap-4">
+                <div class="course-cards">
+                    <div class="course-card">
                     <img src="https://placehold.co/300x200" alt="Développement Web">
                     <div class="course-content">
                         <div class="course-info">
@@ -111,36 +88,10 @@
                         <a href="#" class="btn btn-primary btn-block">Voir le cours</a>
                     </div>
                 </div>
-
-                <div class="course-card">
-                    <img src="https://placehold.co/300x200" alt="Marketing Digital">
-                    <div class="course-content">
-                        <div class="course-info">
-                            <span class="course-level">Intermédiaire</span>
-                            <span class="course-rating">4.7 ★★★★★</span>
-                        </div>
-                        <h3>Marketing Digital</h3>
-                        <p>Maîtrisez les stratégies de marketing en ligne pour développer votre entreprise.</p>
-                        <a href="#" class="btn btn-primary btn-block">Voir le cours</a>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <img src="https://placehold.co/300x200" alt="Intelligence Artificielle">
-                    <div class="course-content">
-                        <div class="course-info">
-                            <span class="course-level">Avancé</span>
-                            <span class="course-rating">4.9 ★★★★★</span>
-                        </div>
-                        <h3>Intelligence Artificielle</h3>
-                        <p>Découvrez les fondements de l'IA et du machine learning.</p>
-                        <a href="#" class="btn btn-primary btn-block">Voir le cours</a>
-                    </div>
                 </div>
             </div>
-
             <div class="text-center mt-20">
-                <a href="#" class="btn btn-outline">Voir tous les cours <i class="fas fa-chevron-right"></i></a>
+                <a href="all_courses_guest.php" class="btn btn-outline">Voir tous les cours <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </section>
@@ -185,7 +136,7 @@
 
                     <div class="info-item">
                         <h3>Email</h3>
-                        <p>contact@edutunis.tn</p>
+                        <p>contact@ZaytounaAcademy.tn</p>
                     </div>
 
                     <div class="info-item">
@@ -198,48 +149,6 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>EduTunis</h3>
-                    <p>Plateforme éducative tunisienne dédiée à l'apprentissage en ligne de qualité.</p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Liens rapides</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#courses">Cours</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Légal</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Conditions d'utilisation</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Cookies</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Suivez-nous</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2023 EduTunis. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include ('includes/footer.php') ?>
 </body>
 </html>
